@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express")
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
@@ -12,7 +13,7 @@ const authRoutes = require("./routes/auth");
 const taskRoutes = require("./routes/task");
 
 // DB Connection
-mongoose.connect("mongodb://127.0.0.1:27017/taskDB")
+mongoose.connect(process.env.MONGO_URI)
 .then(() => console.log("MongoDB Connected"))
 .catch(err => console.log(err));
 
